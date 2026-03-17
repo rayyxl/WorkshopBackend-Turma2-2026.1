@@ -59,5 +59,6 @@ while vez.lower() == "s":
 
     escrever_resultado(valor1, valor2, operacao, resultado)
     print(f"Resultado: {resultado}")
+    print('testando...')
 
     vez = input("\nDeseja realizar outra operação? (s/n): ")
