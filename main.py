@@ -1,4 +1,6 @@
-vez = "n"
+from datetime import datetime
+
+vez = "s"
 
 def soma(a, b):
     return a + b
@@ -18,7 +20,14 @@ def divisao(a, b):
 def potencia(a, b):
     return a ** b
 
-while vez.lower() == "n":
+def escrever_resultado(v1, v2, op, res):
+    data = datetime.now()
+    data_operacao = data.strftime("%Y-%m-%d")
+    hora_atual = data.strftime("%H:%M:%S")
+    with open("historico.txt", "a") as arquivo:
+        arquivo.write(f"{data_operacao}\n{hora_atual}\n{v1} {op} {v2} = {res}\n\n")
+
+while vez.lower() == "s":
 
     try:
         valor1 = float(input("Digite o primeiro valor: "))
@@ -48,6 +57,7 @@ while vez.lower() == "n":
     else:
         resultado = "Operação inválida"
 
-    print("Resultado: ", resultado)
+    escrever_resultado(valor1, valor2, operacao, resultado)
+    print(f"Resultado: {resultado}")
 
     vez = input("Deseja realizar outra operação? (s/n): ")
