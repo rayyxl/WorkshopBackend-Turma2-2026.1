@@ -22,7 +22,7 @@ def potencia(a, b):
 
 def escrever_resultado(v1, v2, op, res):
     data = datetime.now()
-    data_operacao = data.strftime("%Y-%m-%d")
+    data_operacao = data.strftime("%d-%m-%Y")
     hora_atual = data.strftime("%H:%M:%S")
     with open("historico.txt", "a") as arquivo:
         arquivo.write(f"{data_operacao}\n{hora_atual}\n{v1} {op} {v2} = {res}\n\n")
